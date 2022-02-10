@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') %>
+<h1>
+    <%= it.bookmark.title %>
+</h1>
+<img src="<%= it.bookmark.favicon %>" alt="<%= it.bookmark.title %>">
+<a href="<%= it.bookmark.url %> " target="_blank">
+    <%= it.bookmark.url %>
+</a>
+<br>
+<footer>
+    <a href="/bookmarks/<%= it.bookmark._id %>/edit">Edit</a>
+    <br>
+    <form action="/bookmarks/<%= it.bookmark._id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+    <a href="/bookmarks">&larr; All bookmarks</a>
+</footer>

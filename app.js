@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
+const Eta = require("eta");
 const path = require('path');
 const methodOverride = require('method-override');
 const Bookmark = require('./models/bookmark');
+const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 
@@ -17,10 +19,12 @@ db.once('open', () => {
     console.log("Database connected!")
 })
 
-app.set('view engine', 'ejs');
+app.engine("eta", Eta.renderFile)
+app.set("view engine", "eta")
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use(morgan("dev"))
 
 const categories = Bookmark.schema.path('category').enumValues;
 

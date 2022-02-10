@@ -2,7 +2,7 @@
   "name": "thewebs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,9 +17,10 @@
   },
   "homepage": "https://github.com/mufidu/thewebs#readme",
   "dependencies": {
-    "ejs": "^3.1.6",
+    "eta": "^1.12.3",
     "express": "^4.17.2",
     "method-override": "^3.0.0",
-    "mongoose": "^6.1.10"
+    "mongoose": "^6.2.1",
+    "morgan": "^1.10.0"
   }
 }
