@@ -1,0 +1,31 @@
+<% layout('layouts/boilerplate') %>
+
+<main>
+    <form hidden id="newBookmark" method="get" action="/bookmarks/new"></form>
+    <button onclick="document.getElementById('newBookmark').submit()">Add a new bookmark</button>
+
+    <% for (category of it.categories) { %>
+    <div class="category">
+        <h2><%= category %></h2>
+        <div class="websites">
+            <% for (bookmark of it.bookmarks) { %>
+            <% if (bookmark.category === category) { %>
+            <div class="website">
+                <div class="favicon">
+                    <a href="<%= bookmark.url %>" target="_blank">
+                        <img src="<%= bookmark.favicon %>" alt="<%= bookmark.title %>" width="25" height="25">
+                    </a>
+                </div>
+                <div class="details">
+                    <h3><%= bookmark.title %></h3>
+                    <p><a href="<%= bookmark.url %>" target="_blank"><%= bookmark.url %></a></p>
+                    <p><a href="/bookmarks/<%= bookmark._id %>">details</a></p>
+                    <p><a href="/bookmarks/<%= bookmark._id %>/edit">edit</a></p>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+</main>

@@ -1,0 +1,33 @@
+$color_primary: #111a31;
+$color_primary_light: #3e497a;
+$color_secondary: #f1d00a;
+$color_third: #f0f0f0;
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    quotes: "“" "”" "‘" "’";
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+* {
+    &,
+    &::after,
+    &::before {
+        border: 0;
+        box-sizing: border-box;
+    }
+
+    &::selection:not(input) {
+        background: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+body {
+    background-color: $color_primary;
+    color: $color_third;
+}

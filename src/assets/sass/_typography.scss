@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Inter UI";
+    font-weight: 100 900;
+    font-style: oblique 0deg 10deg;
+    src: url("/fonts/Inter-3.19.var.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter-fallback";
+    size-adjust: 107.05%;
+    ascent-override: 82%;
+    src: local("Arial");
+}
+
+html {
+    font-family: Inter UI, Inter-fallback;
+    --font-family: Inter UI, Inter-fallback;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+b {
+    font-weight: bold;
+}
+
+main {
+    a {
+        color: $color_secondary;
+        text-decoration: none;
+
+        &:not(.website):hover {
+            text-decoration: underline;
+        }
+    }
+}

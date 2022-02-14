@@ -3,8 +3,9 @@ const app = express();
 const Eta = require("eta");
 const path = require('path');
 const methodOverride = require('method-override');
-const Bookmark = require('./models/bookmark');
+const Bookmark = require('./src/models/bookmark');
 const morgan = require('morgan');
+const reload = require('reload');
 
 const mongoose = require('mongoose');
 
@@ -21,7 +22,8 @@ db.once('open', () => {
 
 app.engine("eta", Eta.renderFile)
 app.set("view engine", "eta")
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'src/views'));
+app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(morgan("dev"))
@@ -43,7 +45,10 @@ app.get('/bookmarks/new', async (req, res) => {
 });
 
 app.post('/bookmarks', async (req, res) => {
-    const { title, url, category, favicon } = req.body;
+    let { title, url, category, favicon } = req.body;
+    if ('https://' !== url.substring(0, 8)) {
+        url = 'https://' + url;
+    }
     const bookmark = new Bookmark({ title, url, category, favicon });
     await bookmark.save();
     res.redirect('/bookmarks');
@@ -60,9 +65,12 @@ app.get('/bookmarks/:id/edit', async (req, res) => {
 });
 
 app.put('/bookmarks/:id', async (req, res) => {
-    const { title, url, category } = req.body;
+    let { title, url, category } = req.body;
+    if ('https://' !== url.substring(0, 8)) {
+        url = 'https://' + url;
+    }
     const bookmark = await Bookmark.findByIdAndUpdate(req.params.id, { title, url, category });
-    res.redirect(`/bookmarks/${bookmark._id}`);
+    res.redirect(`/bookmarks`);
 });
 
 app.delete('/bookmarks/:id', async (req, res) => {
@@ -70,6 +78,8 @@ app.delete('/bookmarks/:id', async (req, res) => {
     res.redirect('/bookmarks');
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+app.listen(8080, () => {
+    console.log('Server is running on port 8080');
 });
+
+reload(app);

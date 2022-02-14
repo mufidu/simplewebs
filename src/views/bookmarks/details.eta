@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate') %>
+
+<main>
+    <br><br>
+    <img src="<%= it.bookmark.favicon %>" alt="<%= it.bookmark.title %>">
+    <br>
+    <h3><%= it.bookmark.title %></h3>
+    <a href="<%= it.bookmark.url %> " target="_blank">
+        <%= it.bookmark.url %>
+    </a>
+
+    <p>Category: <%= it.bookmark.category %></p>
+    <form hidden id="editBookmark" method="get" action="/bookmarks/<%= it.bookmark._id %>/edit"></form>
+    <button onclick="document.getElementById('editBookmark').submit()">Edit</button>
+
+
+    <br><br>
+    <a href="/bookmarks">&larr; All bookmarks</a>
+    <br><br>
+</main>

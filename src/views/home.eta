@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate') %>
+
+<main>
+    <article>
+        <h1>Tired of those overwhelmed bookmarks?</h1>
+        <p>Introducing <b>simplewebs</b>, a bookmark manager you can see without being overwhelmed by URLs.</p>
+        <p>How? Because it just uses <b>favicons</b> to represent your bookmarks.</p>
+        <p>And it's (currently) <b>free</b>!</p>
+        <p>So, <a href="/bookmarks">get started</a> now! Or I'll eat your dinner 😡.</p>
+    </article>
+</main>

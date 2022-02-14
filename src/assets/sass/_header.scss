@@ -1,0 +1,33 @@
+header {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding: 3rem;
+        h1 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-grow: 1;
+        }
+        a {
+            color: $color_secondary;
+            text-decoration: none;
+            &.app {
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                background-color: $color_secondary;
+                color: $color_primary;
+                font-weight: bold;
+                transition: all 0.3s ease-in-out;
+                opacity: 1;
+                &:hover {
+                    transform: translateY(-0.15rem);
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}

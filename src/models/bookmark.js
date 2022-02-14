@@ -13,10 +13,13 @@ const bookmarkSchema = new Schema({
     category: {
         type: String,
         enum: ['tool', 'social', 'devs', 'entertainment', 'shopping'],
-    },
-    favicon: {
-        type: String,
     }
+});
+
+// Create the favicon attribute using the url
+bookmarkSchema.virtual('favicon').get(function () {
+    url = new URL(this.url);
+    return `https://icons.duckduckgo.com/ip3/${url.hostname}.ico`;
 });
 
 module.exports = mongoose.model('Bookmark', bookmarkSchema);

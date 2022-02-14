@@ -1,0 +1,18 @@
+body {
+    font-size: 1.2rem;
+    line-height: 1.5;
+
+    main {
+        // use calc to make sure the content is centered
+        padding: 0 calc((100vw - 60%) / 2);
+        min-height: 100vh;
+
+        article {
+            margin-bottom: 3rem;
+
+            p {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

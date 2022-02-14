@@ -1,3 +1,0 @@
-<% layout('layouts/boilerplate') %>
-<h1>thewebs</h1>
-<a href="/bookmarks">All bookmarks</a>

@@ -1,26 +1,38 @@
 {
-  "name": "thewebs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mufidu/thewebs.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mufidu/thewebs/issues"
-  },
-  "homepage": "https://github.com/mufidu/thewebs#readme",
-  "dependencies": {
-    "eta": "^1.12.3",
-    "express": "^4.17.2",
-    "method-override": "^3.0.0",
-    "mongoose": "^6.2.1",
-    "morgan": "^1.10.0"
-  }
+    "name": "simplewebs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "cross-env NODE_ENV=development npx concurrently \"npm run watch:sass\" \"nodemon -e js,eta,css app.js\" ",
+        "watch:sass": "npx sass --watch --style=expanded src/assets/sass/main.scss dist/css/main.css",
+        "build:sass": "cross-env NODE_ENV=production npx sass --style=compressed src/assets/sass/main.scss dist/css/main.css",
+        "build": "npm run build:sass"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mufidu/simplewebs.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/mufidu/simplewebs/issues"
+    },
+    "homepage": "https://github.com/mufidu/simplewebs#readme",
+    "dependencies": {
+        "eta": "^1.12.3",
+        "express": "^4.17.2",
+        "method-override": "^3.0.0",
+        "mongoose": "^6.2.1",
+        "morgan": "^1.10.0",
+        "sass": "^1.49.7"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "cssnano": "^5.0.17",
+        "path-browserify": "^1.0.1",
+        "querystring-es3": "^0.2.1",
+        "reload": "^3.2.0"
+    }
 }
