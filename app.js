@@ -9,7 +9,7 @@ const reload = require('reload');
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/thewebs', {
+mongoose.connect('mongodb://localhost:27017/simplewebs', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
