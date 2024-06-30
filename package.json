@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "cross-env NODE_ENV=development npx concurrently \"npm run watch:sass\" \"nodemon -e js,eta,css app.js\" ",
+        "start": "cross-env NODE_ENV=development npx concurrently \"npm run watch:sass\" \"npx nodemon -e js,eta,css app.js\" ",
         "watch:sass": "npx sass --watch --style=expanded src/assets/sass/main.scss dist/css/main.css",
         "build:sass": "cross-env NODE_ENV=production npx sass --style=compressed src/assets/sass/main.scss dist/css/main.css",
         "build": "npm run build:sass"
@@ -26,6 +26,7 @@
         "method-override": "^3.0.0",
         "mongoose": "^6.2.1",
         "morgan": "^1.10.0",
+        "nodemon": "^3.1.4",
         "sass": "^1.49.7"
     },
     "devDependencies": {
